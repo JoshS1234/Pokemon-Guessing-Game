@@ -4,7 +4,7 @@ body {
 }
 
 img {
-  width: min(50%, 500px);
+  width: min(50%, 200px);
   border: solid 3px;
   border-radius: 20%;
   margin:3%
@@ -13,14 +13,13 @@ img {
 .imageAndGuess {
   background-color: rgb(255, 249, 126);
   width:80%;
-  height:80%;
   text-align: center;
   justify-content: center;
   display: inline-block;
   border: 3px solid;
   /* border-radius: 20%; */
-  padding: 0% 5% 3% 5%;
-  margin: 2%;
+  padding: 0% 5% 0% 5%;
+  margin: 1%;
 }
 
 .Scorecard {
@@ -31,8 +30,8 @@ img {
   display: inline-block;
   border: 3px solid;
   border-radius: 0%;
-  padding: 0% 5% 3% 5%;
-  margin: 2%;
+  padding: 0% 5% 0% 5%;
+  margin: 1%;
 }
 
 

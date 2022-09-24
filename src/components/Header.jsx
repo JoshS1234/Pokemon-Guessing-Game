@@ -1,5 +1,5 @@
 function Header() {
-  return <h1>Pokeguessr</h1>;
+  return <h1 id="title">Pokeguessr</h1>;
 }
 
 export default Header;

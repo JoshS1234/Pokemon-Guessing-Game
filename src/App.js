@@ -8,7 +8,7 @@ function App() {
   return (
     <section>
       <Header />
-      <ChooseGen />
+      {/* <ChooseGen /> */}
       <PokemonNameProvider />
     </section>
   );
