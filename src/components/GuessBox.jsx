@@ -14,7 +14,12 @@ function GuessBox({
   const helperFunction = (event) => {
     event.preventDefault();
     setHasGuessed(true);
-    if (pokemonGuessText === pokemonName) {
+    //also include the case where 1st letter capitalised
+    if (
+      pokemonGuessText === pokemonName ||
+      pokemonGuessText[0].toLowerCase + pokemonGuessText.slice(1) ===
+        pokemonName
+    ) {
       setIsCorrect(true);
       setCurrentScore(currentScore + 1);
     } else {
