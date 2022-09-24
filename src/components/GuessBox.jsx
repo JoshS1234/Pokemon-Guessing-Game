@@ -17,8 +17,7 @@ function GuessBox({
     //also include the case where 1st letter capitalised
     if (
       pokemonGuessText === pokemonName ||
-      pokemonGuessText[0].toLowerCase + pokemonGuessText.slice(1) ===
-        pokemonName
+      pokemonGuessText.toLowerCase() === pokemonName
     ) {
       setIsCorrect(true);
       setCurrentScore(currentScore + 1);
@@ -57,11 +56,13 @@ function GuessBox({
         {!hasGuessed ? (
           <section>
             <h2>Have a guess!</h2>
-            <h2>(Enter answers in lower case)</h2>
           </section>
         ) : isCorrect ? (
           <section>
-            <h2>Woop! Got it correct!</h2>
+            <h2>
+              Woop! Got it correct! It was{" "}
+              {pokemonName[0].toUpperCase() + pokemonName.slice(1)}
+            </h2>
             <button
               onClick={(event) => {
                 startNewTurnFunction(event);
@@ -72,7 +73,10 @@ function GuessBox({
           </section>
         ) : (
           <section>
-            <h2>Whoops! Wrongo! It was a {pokemonName}</h2>
+            <h2>
+              Whoops! Wrongo! It was a{" "}
+              {pokemonName[0].toUpperCase() + pokemonName.slice(1)}
+            </h2>
             <button
               onClick={(event) => {
                 startNewTurnFunction(event);
