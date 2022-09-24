@@ -1,38 +1,38 @@
-.App {
+body {
   text-align: center;
+  background-color: rgb(255, 230, 170);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  width: min(50%, 500px);
+  border: solid 3px;
+  border-radius: 20%;
+  margin:3%
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.imageAndGuess {
+  background-color: rgb(255, 249, 126);
+  width:80%;
+  height:80%;
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: inline-block;
+  border: 3px solid;
+  /* border-radius: 20%; */
+  padding: 0% 5% 3% 5%;
+  margin: 2%;
 }
 
-.App-link {
-  color: #61dafb;
+.Scorecard {
+  background-color: rgb(255, 249, 126);
+  width: 40%;
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  border: 3px solid;
+  border-radius: 0%;
+  padding: 0% 5% 3% 5%;
+  margin: 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

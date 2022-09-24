@@ -30,14 +30,16 @@ function PokemonNameProvider() {
   } else {
     return (
       <section>
-        <PokemonPicture pokemonName={pokemonName} />
-        <GuessBox
-          pokemonName={pokemonName}
-          startNewTurn={startNewTurn}
-          setStartNewTurn={setStartNewTurn}
-          currentScore={currentScore}
-          setCurrentScore={setCurrentScore}
-        />
+        <div className="imageAndGuess">
+          <PokemonPicture pokemonName={pokemonName} />
+          <GuessBox
+            pokemonName={pokemonName}
+            startNewTurn={startNewTurn}
+            setStartNewTurn={setStartNewTurn}
+            currentScore={currentScore}
+            setCurrentScore={setCurrentScore}
+          />
+        </div>
         <ScoreCard currentScore={currentScore} />
       </section>
     );

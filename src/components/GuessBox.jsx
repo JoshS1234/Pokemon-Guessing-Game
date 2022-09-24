@@ -50,7 +50,10 @@ function GuessBox({
       </form>
       <section>
         {!hasGuessed ? (
-          <h2>Have a guess! (Enter answers in lower case)</h2>
+          <section>
+            <h2>Have a guess!</h2>
+            <h2>(Enter answers in lower case)</h2>
+          </section>
         ) : isCorrect ? (
           <section>
             <h2>Woop! Got it correct!</h2>
@@ -64,7 +67,7 @@ function GuessBox({
           </section>
         ) : (
           <section>
-            <h2>Whoops! Got it wrong! It was a {pokemonName}</h2>
+            <h2>Whoops! Wrongo! It was a {pokemonName}</h2>
             <button
               onClick={(event) => {
                 startNewTurnFunction(event);
