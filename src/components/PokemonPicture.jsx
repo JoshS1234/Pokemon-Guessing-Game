@@ -12,7 +12,12 @@ function PokemonPicture({ pokemonName }) {
   }, [pokemonName]);
 
   if (pokemonImageURL) {
-    return <img src={pokemonImageURL} alt={`image of a ${pokemonName}`} />;
+    return (
+      <img
+        src={pokemonImageURL}
+        alt={`${pokemonName} sprite, default frontal view`}
+      />
+    );
   } else {
     return <h1>Loading...</h1>;
   }
