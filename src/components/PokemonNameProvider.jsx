@@ -14,8 +14,13 @@ function PokemonNameProvider() {
 
   const [isGen1to3, setIsGen1to3] = useState(false);
 
+  // const [isError, setIsError] = useState(false);
+  const [isErrorPicture, setIsErrorPicture] = useState(false);
+
   useEffect(() => {
     setIsLoading(true);
+    setIsErrorPicture(false);
+    // setIsError(false);
     axios
       .get("https://pokeapi.co/api/v2/pokemon-species?limit=1200")
       .then((data) => {
@@ -26,14 +31,22 @@ function PokemonNameProvider() {
           setPokemonName(nameList[Math.floor(Math.random() * nameList.length)]);
         } else {
           //386
+          // setPokemonName(nameList[Math.floor(Math.random() * 386)]);
+
+          // const poop = Math.random() * 2;
+          // if (poop > 1) {
+          //   setPokemonName(nameList[641]);
+          // } else {
           setPokemonName(nameList[Math.floor(Math.random() * 386)]);
+          // }
         }
         setIsLoading(false);
       })
       .catch((error) => {
+        // setIsError(true);
         console.log(error);
       });
-  }, [startNewTurn]);
+  }, [startNewTurn, isErrorPicture]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -53,7 +66,10 @@ function PokemonNameProvider() {
           <p>The filter will start from the next pokemon</p>
         </div>
         <div className="imageAndGuess">
-          <PokemonPicture pokemonName={pokemonName} />
+          <PokemonPicture
+            pokemonName={pokemonName}
+            setIsErrorPicture={setIsErrorPicture}
+          />
           <GuessBox
             pokemonName={pokemonName}
             startNewTurn={startNewTurn}
