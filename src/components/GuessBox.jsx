@@ -14,11 +14,7 @@ function GuessBox({
   const helperFunction = (event) => {
     event.preventDefault();
     setHasGuessed(true);
-    //also include the case where 1st letter capitalised
-    if (
-      pokemonGuessText === pokemonName ||
-      pokemonGuessText.toLowerCase() === pokemonName
-    ) {
+    if (pokemonGuessText.toLowerCase() === pokemonName) {
       setIsCorrect(true);
       setCurrentScore(currentScore + 1);
     } else {
@@ -30,7 +26,6 @@ function GuessBox({
   const startNewTurnFunction = (event) => {
     event.preventDefault();
     setHasGuessed(false);
-    console.log(isCorrect, currentScore);
 
     setIsCorrect(false);
     setStartNewTurn(startNewTurn + 1);
@@ -41,7 +36,6 @@ function GuessBox({
       <form
         onSubmit={(event) => {
           helperFunction(event);
-          console.log(pokemonGuessText);
         }}
       >
         <input
