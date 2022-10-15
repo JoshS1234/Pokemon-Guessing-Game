@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function PokemonPicture({ pokemonName }) {
+function PokemonPicture({ pokemonName, setIsErrorPicture }) {
   const [pokemonImageURL, setPokemonImageURL] = useState("");
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((data) => {
         setPokemonImageURL(data.data.sprites.front_default);
+      })
+      .catch((err) => {
+        setIsErrorPicture(true);
       });
-  }, [pokemonName]);
+  }, [pokemonName, setIsErrorPicture]);
 
   if (pokemonImageURL) {
     return (
