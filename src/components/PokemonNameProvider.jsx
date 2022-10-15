@@ -12,6 +12,8 @@ function PokemonNameProvider() {
   const [startNewTurn, setStartNewTurn] = useState(1);
   const [currentScore, setCurrentScore] = useState(0);
 
+  const [isGen1to3, setIsGen1to3] = useState(false);
+
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -20,8 +22,16 @@ function PokemonNameProvider() {
         const nameList = data.data.results.map((pokemon) => {
           return pokemon.name;
         });
-        setPokemonName(nameList[Math.floor(Math.random() * nameList.length)]);
+        if (!isGen1to3) {
+          setPokemonName(nameList[Math.floor(Math.random() * nameList.length)]);
+        } else {
+          //386
+          setPokemonName(nameList[Math.floor(Math.random() * 386)]);
+        }
         setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, [startNewTurn]);
 
@@ -30,6 +40,18 @@ function PokemonNameProvider() {
   } else {
     return (
       <section>
+        <div>
+          <label htmlFor="toggleGen">Generation 1-3 only? </label>
+          <button
+            id="toggleGen"
+            onClick={() => {
+              setIsGen1to3(!isGen1to3);
+            }}
+          >
+            {isGen1to3 ? <p>On</p> : <p>Off</p>}
+          </button>
+          <p>The filter will start from the next pokemon</p>
+        </div>
         <div className="imageAndGuess">
           <PokemonPicture pokemonName={pokemonName} />
           <GuessBox
