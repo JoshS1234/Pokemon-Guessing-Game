@@ -54,7 +54,7 @@ function GuessBox({
         ) : isCorrect ? (
           <section>
             <h2>
-              Woop! Got it correct! It was{" "}
+              Wahey! Got it correct! It was{" "}
               {pokemonName[0].toUpperCase() + pokemonName.slice(1)}
             </h2>
             <button
