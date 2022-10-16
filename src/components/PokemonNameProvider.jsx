@@ -12,7 +12,7 @@ function PokemonNameProvider() {
   const [startNewTurn, setStartNewTurn] = useState(1);
   const [currentScore, setCurrentScore] = useState(0);
 
-  const [isGen1to2, setIsGen1to2] = useState(false);
+  const [isGen1, setIsGen1] = useState(false);
 
   const [isErrorPicture, setIsErrorPicture] = useState(false);
 
@@ -25,10 +25,10 @@ function PokemonNameProvider() {
         const nameList = data.data.results.map((pokemon) => {
           return pokemon.name;
         });
-        if (!isGen1to2) {
+        if (!isGen1) {
           setPokemonName(nameList[Math.floor(Math.random() * nameList.length)]);
         } else {
-          setPokemonName(nameList[Math.floor(Math.random() * 251)]);
+          setPokemonName(nameList[Math.floor(Math.random() * 151)]);
         }
         setIsLoading(false);
       })
@@ -43,14 +43,14 @@ function PokemonNameProvider() {
     return (
       <section>
         <div>
-          <label htmlFor="toggleGen">Generation 1 and 2 only? </label>
+          <label htmlFor="toggleGen">Generation 1 only? </label>
           <button
             id="toggleGen"
             onClick={() => {
-              setIsGen1to2(!isGen1to2);
+              setIsGen1(!isGen1);
             }}
           >
-            {isGen1to2 ? <p>On</p> : <p>Off</p>}
+            {isGen1 ? <p>On</p> : <p>Off</p>}
           </button>
           <p>The filter will start from the next pokemon</p>
         </div>
